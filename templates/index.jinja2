@@ -1,0 +1,297 @@
+<html>
+
+<head>
+
+</head>
+
+<body>
+    <style>
+        {% include "index.css" %}
+    </style>
+
+    <div style="display: flex;">
+        <div class="page" id="front-page">
+            <div class="page-border">
+                <h2>Ministerul educației și Cercetării al Republicii Moldova</h2>
+                <div class="title-row">
+                    <div class="title-header-container">
+                        <h1 class="title-header"> Dosar Personal <br> nr. <span class="underline">{{ folderNumber
+                                }}</span></h1>
+                    </div>
+                    <div class="image-placeholder"></div>
+                </div>
+
+                <div class="information-row">
+                    <div class="student-name-row">
+                        <span>al elevului/ei</span>
+                        <div class="field-with-comment">
+                            <span id="student-name">{{ lastName + firstName }}</span>
+                            <span class="comment">numele, prenumele</span>
+                        </div>
+                    </div>
+
+                    <div class="field-with-comment">
+                        <span>Instituția Publică Liceul Teoretic "Mihai Viteazul"</span>
+                        <span class="comment">denumirea completă a instituției de învățământ preuniversitar</span>
+                    </div>
+
+                    <div class="field-with-comment">
+                        <span>mun. Chișinău, strada Mitropolit Gurie Grosu 4</span>
+                        <span>adresa instituției de învățământ preuniversitar</span>
+                    </div>
+                </div>
+
+                <div class="signature-row">
+                    <div class="class-date-row">
+                        <span>Înmatriculat în clasa : <span style="font-size: 23px;">I „E”</span></span>
+                        <div>
+                            <span class="underline">01 septembrie 2022</span>
+                        </div>
+                    </div>
+
+                    <div class="headmaster">
+                        <span>Director: </span>
+                        <span class="headmaster-name">Nelly Berezovschi</span>
+                    </div>
+
+                    <div>
+                        <span>L.Ș.</span>
+                    </div>
+                </div>
+
+                <div class="ending-comment-row">
+                    <span style="font-weight: bold; font-size: 1em">
+                        Dosarul se păstrează în arhiva instituției de învățământ preuniversitar.
+                    </span>
+                    <span style="font-weight: bold; font-size: 1em">
+                        În caz de transfer, dosarul se înmânează părinților elevului sau tutorelui.
+                    </span>
+                </div>
+
+            </div>
+        </div>
+
+        <div class="page">
+            <div class="page-border">
+
+            </div>
+        </div>
+    </div>
+
+    <div style="display: flex;">
+
+        <div class="page" id="personal-details-page">
+            <div class="page-border" id="personal-details-container">
+                <section>
+                    <h3>I. Date personale ale elevului</h3>
+                    <div class="section-contents">
+                        <div class="pd-grid">
+                            <span>Nume elev: </span>
+                            <span class="underline value student-name-value">{{ lastName }}</span>
+                            <span>Prenume elev: </span>
+                            <span class="underline value student-name-value">{{ firstName }}</span>
+                            <span>Gen: </span>
+                            <span class="underline value">{{ gender }}</span>
+                            <div class="blank-placeholder"></div>
+                            <span>Data nașterii: </span>
+                            <span class="underline value">{{ birthDay }}</span>
+                            <span>Locul nașterii: </span>
+                            <span class="underline value">{{ birthPlace }}</span>
+                            <span>Telefon de contact: </span>
+                            <span class="underline value">{{ contactPhone }}</span>
+                            <span>E-mail: </span>
+                            <span class="underline value">{{ contactEmail }}</span>
+                        </div>
+                    </div>
+                </section>
+
+                <section>
+                    <h3>II. Date cu privire la ruta școlară anterioară</h3>
+                    <div class="section-contents">
+                        <div class="prev-grid">
+                            <span>Grădinița sau școlile frecventate anterior: </span>
+                            <span class="underline value"> {{ prevSchool }}</span>
+                            <span>Înscris în instituția dată din anul școlar: </span>
+                            <span class="underline value"> 2022-2023 </span>
+                        </div>
+                    </div>
+                </section>
+
+                <section>
+                    <h3>III. Date despre membrii familiei</h3>
+                    <div class="section-contents">
+                        <div class="family-grid">
+                            <span>Numele și prenumele tatălui: </span>
+                            <span class="underline value family-full-grid">{{ fatherName }}</span>
+                            <span>Ocupația: </span>
+                            <span class="underline value family-full-grid">{{ fatherJob }}</span>
+                            <span>Date Contact</span>
+                            <span>Telefon Serviciu</span>
+                            <span class="underline value">{{ fatherWorkPhone }}</span>
+                            <span>Telefon Mobil</span>
+                            <span class="underline value">{{ fatherPhone }}</span>
+                            <span>Numele și prenumele mamei: </span>
+                            <span class="underline value family-full-grid">{{ motherName }}</span>
+                            <span>Ocupația: </span>
+                            <span class="underline value family-full-grid">{{ motherJob }}</span>
+                            <span>Date Contact</span>
+                            <span>Telefon Serviciu</span>
+                            <span class="underline value">{{ motherWorkPhone }}</span>
+                            <span>Telefon Mobil</span>
+                            <span class="underline value">{{ motherPhone }}</span>
+                            <span>Numele și prenumele tutorelui: </span>
+                            <span class="underline value family-full-grid">{{ tutorName }}</span>
+                            <span>Ocupația: </span>
+                            <span class="underline value family-full-grid">{{ tutorJob }}</span>
+                            <span>Date Contact</span>
+                            <span>Telefon Serviciu</span>
+                            <span class="underline value">{{ tutorWorkPhone }}</span>
+                            <span>Telefon Mobil</span>
+                            <span class="underline value">{{ tutorPhone }}</span>
+                            <span>Telefon Fix: </span>
+                            <span class="underline value family-full-grid">{{ landline }}</span>
+                        </div>
+                    </div>
+                </section>
+
+                <section>
+                    <h3>IV. Date despre domiciliu</h3>
+                    <div class="section-contents">
+                        <div class="prev-grid">
+                            <span>Domiciliul este: </span>
+                            <div class="choice-row">
+                                <div class="option">
+                                    <div class="checkbox {% if homeType == 'casă' %}selected-option{% endif %}"> </div>
+                                    <span class="{% if homeType == 'casă' %}selected-option{% endif %}">casă</span>
+                                </div>
+                                <div class="option">
+                                    <div class="checkbox {% if homeType == 'bloc' %}selected-option{% endif %}"> </div>
+                                    <span class="{% if homeType == 'bloc' %}selected-option{% endif %}">bloc</span>
+                                </div>
+                                <div class="option">
+                                    <div class="checkbox {% if homeType == 'chirie casă' %}selected-option{% endif %}">
+                                    </div>
+                                    <span class="{% if homeType == 'chirie casă' %}selected-option{% endif %}">chirie
+                                        casă</span>
+                                </div>
+                                <div class="option">
+                                    <div class="checkbox {% if homeType == 'chirie bloc' %}selected-option{% endif %}">
+                                    </div>
+                                    <span class="{% if homeType == 'chirie bloc' %}selected-option{% endif %}">chirie
+                                        bloc</span>
+                                </div>
+                                <div class="option" style="flex-grow: 2;">
+                                    <div class="checkbox {% if homeType == 'altele' %}selected-option{% endif %}">
+                                    </div>
+                                    <div
+                                        class="blank-underline {% if homeType == 'altele' %}selected-option{% endif %}">
+                                        <span>{{homeTypeOther}}</span></div>
+                                </div>
+                            </div>
+                            <span>Adresa: </span>
+                            <span class="underline value">{{ homeAddress }}</span>
+                        </div>
+                    </div>
+                </section>
+
+                <section>
+                    <h3>V. Date despre educația elevului</h3>
+                    <div class="section-contents">
+                        <div class="prev-grid">
+                            <span> Limba de instruire </span>
+                            <span class="underline value"> Română </span>
+
+                            <span> Participă la activități extracurriculare </span>
+                            <div class="choice-row slim">
+                                <div class="option">
+                                    <div class="checkbox {% if extracurricular == 'da' %}selected-option{% endif %}"> </div>
+                                    <span class="{% if extracurricular == 'da' %}selected-option{% endif %}">da</span>
+                                </div>
+                                <div class="option">
+                                    <div class="checkbox {% if extracurricular == 'nu' %}selected-option{% endif %}"> </div>
+                                    <span class="{% if extracurricular == 'nu' %}selected-option{% endif %}">nu</span>
+                                </div>
+                            </div>
+                            <span class="prev-grid--full-row">Participă la evenimente culturale, sportive, cluburi de arte etc. (dacă da, de specificat)</span>
+                            <span class="prev-grid--full-row blank-underline value">{{ extracurricularDetails }}</span>
+                            <span class="prev-grid--full-row blank-underline value">{{ extracurricularDetails }}</span>
+                            <div class="prev-grid--full-row prev-grid--inline-row">
+                            <span >A fost sau nu stimulat în cadrul activităților (extra)școlare? (dacă da, de specificat)</span>
+                                <div class="option">
+                                    <div class="checkbox {% if stimulated == 'da' %}selected-option{% endif %}"> </div>
+                                    <span class="{% if stimulated == 'da' %}selected-option{% endif %}">da</span>
+                                </div>
+                                <div class="option">
+                                    <div class="checkbox {% if stimulated == 'nu' %}selected-option{% endif %}"> </div>
+                                    <span class="{% if stimulated == 'nu' %}selected-option{% endif %}">nu</span>
+                                </div>
+                            </div>
+                            <span class="prev-grid--full-row blank-underline value">{{ extracurricularDetails }}</span>
+                            <span class="prev-grid--full-row blank-underline value">{{ extracurricularDetails }}</span>
+                            <span>Are acces la un computer (PC)?</span>
+                            <div class="choice-row">
+                                <div class="option">
+                                    <div class="checkbox {% if hasComputer == 'acasă' %}selected-option{% endif %}"> </div>
+                                    <span class="{% if hasComputer == 'acasă' %}selected-option{% endif %}">acasă</span>
+                                </div>
+
+                                <div class="option">
+                                    <div class="checkbox {% if hasComputer == 'la școală' %}selected-option{% endif %}"> </div>
+                                    <span class="{% if hasComputer == 'la școală' %}selected-option{% endif %}">la
+                                        școală</span>
+                                </div>
+                                <div class="option">
+                                    <div class="checkbox {% if hasComputer == 'deloc' %}selected-option{% endif %}"> </div>
+                                    <span class="{% if hasComputer == 'deloc' %}selected-option{% endif %}">deloc</span>
+                                </div>
+
+                                <div class="option" style="flex-grow: 2;">
+                                    <div class="checkbox {% if hasComputer == 'altele' %}selected-option{% endif %}">
+                                    </div>
+                                    <div
+                                        class="blank-underline {% if hasComputer == 'altele' %}selected-option{% endif %}">
+                                        <span>{{hasComputerOther}}</span></div>
+                                </div>
+                            </div>
+
+                            <span>Transportul la instituția dată se face: </span>
+                            <div class="choice-row slim">
+                                <div class="option">
+                                    <div class="checkbox {% if transport == 'pe jos' %}selected-option{% endif %}"> </div>
+                                    <span class="{% if transport == 'pe jos' %}selected-option{% endif %}">pe jos</span>
+                                </div>
+                                <div class="option">
+                                    <div class="checkbox {% if transport == 'cu mașina' %}selected-option{% endif %}"> </div>
+                                    <span class="{% if transport == 'cu mașina' %}selected-option{% endif %}">cu
+                                        mașina</span>
+                                </div>
+                                <div class="option">
+                                    <div class="checkbox {% if transport == 'transportul public' %}selected-option{% endif %}">
+                                    </div>
+                                    <span class="{% if transport == 'transportul public' %}selected-option{% endif %}">transportul public</span>
+                                </div>
+                            </div>
+                            <span>Distanța de la domiciliu la școală: </span>
+                            <span class="underline value">{{ distance }}</span>
+
+                </section>
+
+                <section>
+                    <h3>VI. Dispoziții finale</h3>
+                    <ul>
+                        <li>Fotografia 3x4 a elevului</li>
+                        <li>Cererea de înscriere la studii în instituția dată</li>
+                        <li>Copia certificatului de naștere a elevului</li>
+                    </ul>
+                </section>
+            </div>
+        </div>
+        <div class="page">
+            <div class="page-border">
+
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

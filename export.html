@@ -1,0 +1,549 @@
+<html>
+
+<head>
+
+</head>
+
+<body>
+    <style>
+* {
+    font-family: 'Times New Roman', Times, serif;
+}
+
+body {
+    width: 100%;
+    height: 100vh;
+}
+
+
+.page {
+    /* a4 size */
+    width: 210mm;
+    height: 297mm;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.page-border {
+    border: 1mm solid black;
+    margin-top: 8mm;
+    margin-left: 8mm;
+    margin-right: 8mm;
+    margin-bottom: 8mm;
+    width: 194mm;
+    height: 281mm;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.title-row {
+    width: 192mm;
+    margin-top: 4cm;
+    display: grid;
+    grid-template-columns: 1cm 3cm 1fr 3cm 1cm;
+}
+
+.title-header-container {
+    grid-column: 3;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+    width: 100%;
+    height: 100%;
+}
+
+.title-header {
+    grid-column: 3;
+    text-align: center;
+}
+
+.underline {
+    border-bottom: 1px solid black;
+}
+
+.image-placeholder {
+    width: 30mm;
+    height: 40mm;
+    border: 1px solid black;
+    grid-column: 4;
+}
+
+.information-row {
+    width: 132mm;
+    margin-top: 1cm;
+    padding-left: 3cm;
+    padding-right: 3cm;
+    display: grid;
+    grid-template-columns: 1fr;
+    row-gap: 3px;
+}
+
+.field-with-comment {
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr 1fr;
+    column-gap: 1cm;
+}
+
+.field-with-comment > :nth-child(1) {
+    border-bottom: 1px solid black;
+    font-size: 23px;
+    text-align: center;
+    font-style: oblique;
+}
+
+.field-with-comment > :nth-child(2) {
+    font-size: 0.8em;
+    text-align: center;
+    font-style: oblique;
+}
+
+.student-name-row {
+    display: flex;
+}
+
+.student-name-row > :nth-child(1) {
+    flex-grow: 1;
+    font-size: 23px;
+}
+
+.student-name-row > :nth-child(2) {
+    flex-grow: 10;
+}
+
+#student-name {
+    font-size: 23px;
+    font-style: normal;
+    font-weight: bold;
+}
+
+.headmaster-name {
+    font-style: italic;
+    font-size: 27px;
+}
+
+.class-date-row {
+    display: flex;
+    justify-content: space-between;
+}
+
+.signature-row {
+    margin-top: 4cm;
+    width: 152mm;
+    padding-right: 20mm;
+    padding-left: 20mm;
+    display: grid;
+    grid-template-columns: 1fr;
+    /* column-gap: 100px; */
+    font-size: 23px;
+    height: 4cm;
+}
+
+.ending-comment-row {
+    margin-top: 2cm;
+    width: 152mm;
+    padding-right: 20mm;
+    padding-left: 20mm;
+    display: grid;
+    grid-template-columns: 1fr;
+    /* column-gap: 100px; */
+    font-size: 17px;
+}
+
+#personal-details-container > section {
+    width: 174mm;
+    padding-left: 10mm;
+    padding-right: 10mm;
+    margin-top: 8mm;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    font-size: 17px;
+}
+
+#personal-details-container > section > h3 {
+    margin-block-start: 0;
+    margin-block-end: 0;
+    text-align: center;
+}
+
+
+
+.pd-grid {
+    display: grid;
+    grid-template-columns: 1fr 40mm 1fr 50mm;
+    column-gap: 3mm;
+}
+.prev-grid {
+    display: grid;
+    grid-template-columns: max-content 1fr;
+    column-gap: 3mm;
+}
+
+.value {
+    font-weight: bold;
+}
+
+.student-name-value {
+    grid-column-start: 2;
+    grid-column-end: 5;
+}
+
+.blank-placeholder {
+    grid-column-start: 3;
+    grid-column-end: 5;
+}
+
+.family-grid {
+    display: grid;
+    grid-template-columns: max-content max-content 1fr max-content 1fr;
+    column-gap: 3mm;
+}
+
+.family-full-grid {
+    grid-column-start: 2;
+    grid-column-end: 6;
+}
+
+.checkbox {
+    width: 3mm;
+    height: 3mm;
+    border: 1px solid black;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.checkbox.selected-option {
+    background-color: black;
+}
+
+.option {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    /* flex-grow: 3; */
+}
+
+.choice-row {
+    display: flex;
+    justify-content: space-between;
+    gap: 15px; 
+}
+
+.choice-row.slim {
+    justify-content: flex-start;
+}
+
+.selected-option {
+    font-weight: bold;
+}
+
+.blank-underline {
+    border-bottom: 1px solid black;
+    width: 100%;
+    height: 20px;
+}
+
+.prev-grid--full-row {
+    grid-column-start: 1;
+    grid-column-end: 3;
+}
+
+.prev-grid--inline-row {
+    display: flex;
+    justify-content: flex-start;
+    gap: 3mm;
+}    </style>
+
+    <div style="display: flex;">
+        <div class="page" id="front-page">
+            <div class="page-border">
+                <h2>Ministerul educației și Cercetării al Republicii Moldova</h2>
+                <div class="title-row">
+                    <div class="title-header-container">
+                        <h1 class="title-header"> Dosar Personal <br> nr. <span class="underline">B-1332</span></h1>
+                    </div>
+                    <div class="image-placeholder"></div>
+                </div>
+
+                <div class="information-row">
+                    <div class="student-name-row">
+                        <span>al elevului/ei</span>
+                        <div class="field-with-comment">
+                            <span id="student-name">PlămădealăIon</span>
+                            <span class="comment">numele, prenumele</span>
+                        </div>
+                    </div>
+
+                    <div class="field-with-comment">
+                        <span>Instituția Publică Liceul Teoretic "Mihai Viteazul"</span>
+                        <span class="comment">denumirea completă a instituției de învățământ preuniversitar</span>
+                    </div>
+
+                    <div class="field-with-comment">
+                        <span>mun. Chișinău, strada Mitropolit Gurie Grosu 4</span>
+                        <span>adresa instituției de învățământ preuniversitar</span>
+                    </div>
+                </div>
+
+                <div class="signature-row">
+                    <div class="class-date-row">
+                        <span>Înmatriculat în clasa : <span style="font-size: 23px;">I „E”</span></span>
+                        <div>
+                            <span class="underline">01 septembrie 2022</span>
+                        </div>
+                    </div>
+
+                    <div class="headmaster">
+                        <span>Director: </span>
+                        <span class="headmaster-name">Nelly Berezovschi</span>
+                    </div>
+
+                    <div>
+                        <span>L.Ș.</span>
+                    </div>
+                </div>
+
+                <div class="ending-comment-row">
+                    <span style="font-weight: bold; font-size: 1em">
+                        Dosarul se păstrează în arhiva instituției de învățământ preuniversitar.
+                    </span>
+                    <span style="font-weight: bold; font-size: 1em">
+                        În caz de transfer, dosarul se înmânează părinților elevului sau tutorelui.
+                    </span>
+                </div>
+
+            </div>
+        </div>
+
+        <div class="page">
+            <div class="page-border">
+
+            </div>
+        </div>
+    </div>
+
+    <div style="display: flex;">
+
+        <div class="page" id="personal-details-page">
+            <div class="page-border" id="personal-details-container">
+                <section>
+                    <h3>I. Date personale ale elevului</h3>
+                    <div class="section-contents">
+                        <div class="pd-grid">
+                            <span>Nume elev: </span>
+                            <span class="underline value student-name-value">Plămădeală</span>
+                            <span>Prenume elev: </span>
+                            <span class="underline value student-name-value">Ion</span>
+                            <span>Gen: </span>
+                            <span class="underline value">Masculin</span>
+                            <div class="blank-placeholder"></div>
+                            <span>Data nașterii: </span>
+                            <span class="underline value">2015.05.29</span>
+                            <span>Locul nașterii: </span>
+                            <span class="underline value">București</span>
+                            <span>Telefon de contact: </span>
+                            <span class="underline value">0722 222 222</span>
+                            <span>E-mail: </span>
+                            <span class="underline value">example@example.com</span>
+                        </div>
+                    </div>
+                </section>
+
+                <section>
+                    <h3>II. Date cu privire la ruta școlară anterioară</h3>
+                    <div class="section-contents">
+                        <div class="prev-grid">
+                            <span>Grădinița sau școlile frecventate anterior: </span>
+                            <span class="underline value"> nr. 175</span>
+                            <span>Înscris în instituția dată din anul școlar: </span>
+                            <span class="underline value"> 2022-2023 </span>
+                        </div>
+                    </div>
+                </section>
+
+                <section>
+                    <h3>III. Date despre membrii familiei</h3>
+                    <div class="section-contents">
+                        <div class="family-grid">
+                            <span>Numele și prenumele tatălui: </span>
+                            <span class="underline value family-full-grid">Plămădeală Ion </span>
+                            <span>Ocupația: </span>
+                            <span class="underline value family-full-grid">inginer lorem ipsum dolor sit amet consectetur adipiscing</span>
+                            <span>Date Contact</span>
+                            <span>Telefon Serviciu</span>
+                            <span class="underline value">021 222 222</span>
+                            <span>Telefon Mobil</span>
+                            <span class="underline value">0722 222 222</span>
+                            <span>Numele și prenumele mamei: </span>
+                            <span class="underline value family-full-grid">Plămădeală Maria</span>
+                            <span>Ocupația: </span>
+                            <span class="underline value family-full-grid">inginer lorem ipsum dolor sit amet consectetur adipiscing</span>
+                            <span>Date Contact</span>
+                            <span>Telefon Serviciu</span>
+                            <span class="underline value">021 222 222</span>
+                            <span>Telefon Mobil</span>
+                            <span class="underline value">0722 222 222</span>
+                            <span>Numele și prenumele tutorelui: </span>
+                            <span class="underline value family-full-grid"></span>
+                            <span>Ocupația: </span>
+                            <span class="underline value family-full-grid"></span>
+                            <span>Date Contact</span>
+                            <span>Telefon Serviciu</span>
+                            <span class="underline value"></span>
+                            <span>Telefon Mobil</span>
+                            <span class="underline value"></span>
+                            <span>Telefon Fix: </span>
+                            <span class="underline value family-full-grid"></span>
+                        </div>
+                    </div>
+                </section>
+
+                <section>
+                    <h3>IV. Date despre domiciliu</h3>
+                    <div class="section-contents">
+                        <div class="prev-grid">
+                            <span>Domiciliul este: </span>
+                            <div class="choice-row">
+                                <div class="option">
+                                    <div class="checkbox "> </div>
+                                    <span class="">casă</span>
+                                </div>
+                                <div class="option">
+                                    <div class="checkbox selected-option"> </div>
+                                    <span class="selected-option">bloc</span>
+                                </div>
+                                <div class="option">
+                                    <div class="checkbox ">
+                                    </div>
+                                    <span class="">chirie
+                                        casă</span>
+                                </div>
+                                <div class="option">
+                                    <div class="checkbox ">
+                                    </div>
+                                    <span class="">chirie
+                                        bloc</span>
+                                </div>
+                                <div class="option" style="flex-grow: 2;">
+                                    <div class="checkbox ">
+                                    </div>
+                                    <div
+                                        class="blank-underline ">
+                                        <span></span></div>
+                                </div>
+                            </div>
+                            <span>Adresa: </span>
+                            <span class="underline value">Str. Lorem Ipsum, nr. 1, bl. A, sc. A, ap. 1</span>
+                        </div>
+                    </div>
+                </section>
+
+                <section>
+                    <h3>V. Date despre educația elevului</h3>
+                    <div class="section-contents">
+                        <div class="prev-grid">
+                            <span> Limba de instruire </span>
+                            <span class="underline value"> Română </span>
+
+                            <span> Participă la activități extracurriculare </span>
+                            <div class="choice-row slim">
+                                <div class="option">
+                                    <div class="checkbox "> </div>
+                                    <span class="">da</span>
+                                </div>
+                                <div class="option">
+                                    <div class="checkbox "> </div>
+                                    <span class="">nu</span>
+                                </div>
+                            </div>
+                            <span class="prev-grid--full-row">Participă la evenimente culturale, sportive, cluburi de arte etc. (dacă da, de specificat)</span>
+                            <span class="prev-grid--full-row blank-underline value"></span>
+                            <span class="prev-grid--full-row blank-underline value"></span>
+                            <div class="prev-grid--full-row prev-grid--inline-row">
+                            <span >A fost sau nu stimulat în cadrul activităților (extra)școlare? (dacă da, de specificat)</span>
+                                <div class="option">
+                                    <div class="checkbox "> </div>
+                                    <span class="">da</span>
+                                </div>
+                                <div class="option">
+                                    <div class="checkbox "> </div>
+                                    <span class="">nu</span>
+                                </div>
+                            </div>
+                            <span class="prev-grid--full-row blank-underline value"></span>
+                            <span class="prev-grid--full-row blank-underline value"></span>
+                            <span>Are acces la un computer (PC)?</span>
+                            <div class="choice-row">
+                                <div class="option">
+                                    <div class="checkbox "> </div>
+                                    <span class="">acasă</span>
+                                </div>
+
+                                <div class="option">
+                                    <div class="checkbox "> </div>
+                                    <span class="">la
+                                        școală</span>
+                                </div>
+                                <div class="option">
+                                    <div class="checkbox "> </div>
+                                    <span class="">deloc</span>
+                                </div>
+
+                                <div class="option" style="flex-grow: 2;">
+                                    <div class="checkbox ">
+                                    </div>
+                                    <div
+                                        class="blank-underline ">
+                                        <span></span></div>
+                                </div>
+                            </div>
+
+                            <span>Transportul la instituția dată se face: </span>
+                            <div class="choice-row slim">
+                                <div class="option">
+                                    <div class="checkbox "> </div>
+                                    <span class="">pe jos</span>
+                                </div>
+                                <div class="option">
+                                    <div class="checkbox "> </div>
+                                    <span class="">cu
+                                        mașina</span>
+                                </div>
+                                <div class="option">
+                                    <div class="checkbox ">
+                                    </div>
+                                    <span class="">transportul public</span>
+                                </div>
+                            </div>
+                            <span>Distanța de la domiciliu la școală: </span>
+                            <span class="underline value"></span>
+
+                </section>
+
+                <section>
+                    <h3>VI. Dispoziții finale</h3>
+                    <ul>
+                        <li>Fotografia 3x4 a elevului</li>
+                        <li>Cererea de înscriere la studii în instituția dată</li>
+                        <li>Copia certificatului de naștere a elevului</li>
+                    </ul>
+                </section>
+            </div>
+        </div>
+        <div class="page">
+            <div class="page-border">
+
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
