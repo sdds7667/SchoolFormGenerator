@@ -253,3 +253,32 @@ body {
     justify-content: flex-start;
     gap: 3mm;
 }
+
+#table-mso tr {
+    width: 192mm !important;
+}
+
+#table-mso {
+    width: 192mm !important;
+}
+
+#table-mso td{
+    width: 3mm;
+}
+
+#table-mso p {
+    margin-block-start: 0;
+    margin-block-end: 0;
+}
+
+.proces-verbal {
+    rotate: 90deg;
+}
+
+.lesson-name {
+    padding-left: 7px;
+}
+
+.right-border-table {
+    border-right: 2px solid black;
+}
