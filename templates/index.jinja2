@@ -10,9 +10,16 @@
     </style>
 
     <div style="display: flex;">
-        <div class="page" id="front-page">
+       
+
+        <div class="page">
             <div class="page-border">
-                <h2>Ministerul educației și Cercetării al Republicii Moldova</h2>
+                {% include "page3.html" %}
+            </div>
+        </div>
+<div class="page" id="front-page">
+            <div class="page-border">
+                <h2>Ministerul Educației și Cercetării al Republicii Moldova</h2>
                 <div class="title-row">
                     <div class="title-header-container">
                         <h1 class="title-header"> Dosar Personal <br> nr. <span class="underline">{{ folderNumber
@@ -25,7 +32,7 @@
                     <div class="student-name-row">
                         <span>al elevului/ei</span>
                         <div class="field-with-comment">
-                            <span id="student-name">{{ lastName + firstName }}</span>
+                            <span id="student-name">{{ lastName + " " + firstName }}</span>
                             <span class="comment">numele, prenumele</span>
                         </div>
                     </div>
@@ -68,12 +75,6 @@
                     </span>
                 </div>
 
-            </div>
-        </div>
-
-        <div class="page">
-            <div class="page-border">
-                {% include "page3.html" %}
             </div>
         </div>
     </div>
@@ -218,21 +219,21 @@
                             <span class="prev-grid--full-row">Participă la evenimente culturale, sportive, cluburi de
                                 arte etc. (dacă da, de specificat)</span>
                             <span class="prev-grid--full-row blank-underline value">{{ extracurricularDetails }}</span>
-                            <span class="prev-grid--full-row blank-underline value">{{ extracurricularDetails }}</span>
+                            <span class="prev-grid--full-row blank-underline value"></span>
                             <div class="prev-grid--full-row prev-grid--inline-row">
                                 <span>A fost sau nu stimulat în cadrul activităților (extra)școlare? (dacă da, de
                                     specificat)</span>
                                 <div class="option">
-                                    <div class="checkbox {% if stimulated == 'da' %}selected-option{% endif %}"> </div>
-                                    <span class="{% if stimulated == 'da' %}selected-option{% endif %}">da</span>
+                                    <div class="checkbox {% if stimulated == 'Da' %}selected-option{% endif %}"> </div>
+                                    <span class="{% if stimulated == 'Da' %}selected-option{% endif %}">da</span>
                                 </div>
                                 <div class="option">
-                                    <div class="checkbox {% if stimulated == 'nu' %}selected-option{% endif %}"> </div>
-                                    <span class="{% if stimulated == 'nu' %}selected-option{% endif %}">nu</span>
+                                    <div class="checkbox {% if stimulated == 'Nu' %}selected-option{% endif %}"> </div>
+                                    <span class="{% if stimulated == 'Nu' %}selected-option{% endif %}">nu</span>
                                 </div>
                             </div>
-                            <span class="prev-grid--full-row blank-underline value">{{ extracurricularDetails }}</span>
-                            <span class="prev-grid--full-row blank-underline value">{{ extracurricularDetails }}</span>
+                            <span class="prev-grid--full-row blank-underline value">{{ stimulatedDetails }}</span>
+                            <span class="prev-grid--full-row blank-underline value"></span>
                             <span>Are acces la un computer (PC)?</span>
                             <div class="choice-row">
                                 <div class="option">

@@ -1,2 +1,5 @@
 venv
 export.html
+exports
+data.csv
+**/chromedriver.exe

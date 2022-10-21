@@ -170,7 +170,7 @@ body {
 
 .pd-grid {
     display: grid;
-    grid-template-columns: 1fr 40mm 1fr 50mm;
+    grid-template-columns: 1fr 40mm max-content 60mm;
     column-gap: 3mm;
 }
 .prev-grid {
